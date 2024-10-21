@@ -7,7 +7,6 @@ const config: ThemeConfig = {
 };
 
 const theme = extendTheme({
-  config,
   fonts: {
     body: `'Cabin', sans-serif`,
     heading: `'Cabin', sans-serif`,
@@ -48,6 +47,7 @@ const theme = extendTheme({
       },
     },
   },
+  config,
 });
 
 export default theme;
