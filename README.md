@@ -1,11 +1,12 @@
-# React + TypeScript + Vite
+# Ad dashboard [![Build status](https://github.com/4-life/ad-dashboard/actions/workflows/main.yml/badge.svg)](https://github.com/4-life/ad-dashboard/actions) [![Last commit](https://img.shields.io/github/last-commit/4-life/ad-dashboard)](https://github.com/4-life/ad-dashboard/commit/main)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Used libraries
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Typescript](https://img.shields.io/badge/-Typescript-333333?style=flat-square&logo=Typescript)
+![React](https://img.shields.io/badge/-React-333333?style=flat-square&logo=React)
+![Chakra UI](https://img.shields.io/badge/-ChakraUI-333333?style=flat-square&logo=chakraui)
+![Vite](https://img.shields.io/badge/-Vite-333333?style=flat-square&logo=vite)
+![ESLint](https://img.shields.io/badge/-ESLint-333333?style=flat-square&logo=eslint)
 
 ## Expanding the ESLint configuration
 
