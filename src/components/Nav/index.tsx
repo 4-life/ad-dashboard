@@ -8,6 +8,7 @@ import {
   Link,
   Tag,
   Text,
+  useBreakpoint,
 } from '@chakra-ui/react';
 import {
   HomeIcon,
@@ -31,7 +32,11 @@ interface Props {
 
 const menuItem = 'menu';
 
-const initMenu = (): boolean => {
+const initMenu = (bp: string): boolean => {
+  if (bp === 'sm' || bp === 'base') {
+    return false;
+  }
+
   const value = localStorage.getItem(menuItem);
   if (value === null) {
     return true;
@@ -58,7 +63,8 @@ const getIcon = (icon?: string): JSX.Element => {
 };
 
 export default function Nav({ items }: Props): JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean>(initMenu());
+  const bp = useBreakpoint({ ssr: false });
+  const [isOpen, setIsOpen] = useState<boolean>(initMenu(bp));
   const params = useLocation();
 
   const toggleMenu = (): void => {
@@ -73,6 +79,7 @@ export default function Nav({ items }: Props): JSX.Element {
       p={6}
       px={isOpen ? 6 : 0}
       transition="all 0.3s ease"
+      bg="main.500"
     >
       <Gradient isFull={!isOpen} />
       <Flex

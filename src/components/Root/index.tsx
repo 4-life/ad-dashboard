@@ -5,9 +5,9 @@ import { menu } from '../../config';
 
 export default function Root(): JSX.Element {
   return (
-    <Container maxW="full" minH="100vh" p={0}>
-      <Flex minH="100vh">
-        <Flex flex={0} h="100vh">
+    <Container maxW="full" p={0}>
+      <Flex h="100vh" overflowY="scroll">
+        <Flex flex={0} h="100vh" position="sticky" top="0" zIndex={9999}>
           <Nav items={menu} />
         </Flex>
         <Flex flex={1} p={[3, 3, 10]}>

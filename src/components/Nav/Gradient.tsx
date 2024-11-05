@@ -24,7 +24,6 @@ export default function Gradient({ isFull }: Props): JSX.Element {
         h: 'full',
         bg: 'radial-gradient(transparent 0%, var(--chakra-colors-main-500) 70%)',
       }}
-      zIndex={-1}
       transition="all 0.2s ease"
     />
   );
