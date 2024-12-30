@@ -1,10 +1,15 @@
 import { Box } from '@chakra-ui/react';
-import { Marker } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
 import 'leaflet/dist/leaflet.css';
+import { ActivityData } from '@/types';
 
-export default function Map(): JSX.Element {
+interface Props {
+  list: ActivityData[];
+}
+
+export default function Map({ list }: Props): JSX.Element {
   return (
     <Box
       position="absolute"
@@ -40,7 +45,19 @@ export default function Map(): JSX.Element {
           &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
           url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
-        <Marker position={[51.505, -0.09]} />
+        {list.map((data) => (
+          <Marker
+            key={data.id}
+            position={[data.location.lat, data.location.lng]}
+          >
+            <Popup>
+              <b>{data.name}</b>
+              <br />
+              <em>{data.message}</em>
+              <br />
+            </Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </Box>
   );

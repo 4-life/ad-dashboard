@@ -4,13 +4,19 @@ export interface User {
   email: string;
 }
 
+export interface Location {
+  lat: number;
+  lng: number;
+}
+
 export interface ActivityData {
   id: string;
   date: Date;
+  location: Location;
   name?: string;
   email?: string;
   avatar?: string;
-  subject?: string;
   message?: string;
-  isLike?: boolean;
+  where?: string;
+  type?: 'like' | 'comment' | 'newLeader';
 }

@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Flex,
+  Icon,
   IconButton,
   Image,
   Link,
@@ -10,16 +11,12 @@ import {
   Text,
   useBreakpoint,
 } from '@chakra-ui/react';
-import {
-  HomeIcon,
-  MenuIcon,
-  NotifyIcon,
-  PlanetIcon,
-  ReportIcon,
-  SettingsIcon,
-} from '../CustomIcons';
 import { useLocation } from 'react-router-dom';
 import Gradient from './Gradient';
+import { BiHomeAlt2, BiPlanet } from 'react-icons/bi';
+import { VscBellDot } from 'react-icons/vsc';
+import { RiFilePaper2Line } from 'react-icons/ri';
+import { TbMenuDeep, TbSettings2 } from 'react-icons/tb';
 
 interface Props {
   items: {
@@ -46,20 +43,25 @@ const initMenu = (bp: string): boolean => {
 };
 
 const getIcon = (icon?: string): JSX.Element => {
+  const style = {
+    boxSize: 6,
+    color: 'text.500',
+  };
+
   switch (icon) {
     case 'home':
-      return <HomeIcon boxSize={6} color="text.500" />;
+      return <Icon as={BiHomeAlt2} {...style} />;
     case 'notify':
-      return <NotifyIcon boxSize={6} color="text.500" />;
+      return <Icon as={VscBellDot} {...style} />;
     case 'studio':
-      return <PlanetIcon boxSize={6} color="text.500" />;
+      return <Icon as={BiPlanet} {...style} />;
     case 'reports':
-      return <ReportIcon boxSize={6} color="text.500" />;
+      return <Icon as={RiFilePaper2Line} {...style} />;
     case 'settings':
-      return <SettingsIcon boxSize={6} color="text.500" />;
+      return <Icon as={TbSettings2} {...style} />;
   }
 
-  return <HomeIcon boxSize={6} />;
+  return <Icon as={BiHomeAlt2} {...style} />;
 };
 
 export default function Nav({ items }: Props): JSX.Element {
@@ -95,7 +97,7 @@ export default function Nav({ items }: Props): JSX.Element {
         </Box>
 
         <IconButton
-          icon={<MenuIcon />}
+          icon={<TbMenuDeep />}
           aria-label="menu"
           variant="outline"
           border="none"

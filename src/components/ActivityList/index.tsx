@@ -1,11 +1,12 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { ActivityData } from '../../types';
+import { ActivityData } from '@/types';
+import ActivityView from '../ActivityView';
 
 interface Props {
-  data: ActivityData[];
+  list: ActivityData[];
 }
 
-export default function Activity({ data }: Props): JSX.Element {
+export default function Activity({ list }: Props): JSX.Element {
   return (
     <Flex
       alignItems="flex-start"
@@ -18,7 +19,7 @@ export default function Activity({ data }: Props): JSX.Element {
       <Box position="absolute" top={10} right={10} textAlign="right">
         <Text fontSize={25}>Live Map</Text>
         <Text>
-          {data.length} People{' '}
+          {list.length} People{' '}
           <Text color="gray.500" as="span">
             Viewed Your Ads Recently
           </Text>
@@ -27,10 +28,8 @@ export default function Activity({ data }: Props): JSX.Element {
       <Heading variant="h3" mb={10}>
         Activity
       </Heading>
-      {data.map((d) => (
-        <Box w="full" p={5} bg="main.300" borderRadius={12} key={d.id}>
-          <Text>{d.name}</Text>
-        </Box>
+      {list.map((data) => (
+        <ActivityView key={data.id} data={data} />
       ))}
     </Flex>
   );

@@ -14,7 +14,8 @@ import {
   Spacer,
   Text,
 } from '@chakra-ui/react';
-import { User } from '../../types';
+import { User } from '@/types';
+import { getAvatarUrl } from '@/utils/avatars';
 
 interface Props {
   user: User;
@@ -35,7 +36,7 @@ export default function Header({
     <Flex justifyContent="space-between" alignItems="flex-start" mb={10}>
       <Box>
         {!!create && (
-          <Button leftIcon={<AddIcon />} size="lg" mb={10}>
+          <Button leftIcon={<AddIcon />} size="lg" mb={10} bg="main.100">
             Create
           </Button>
         )}
@@ -57,7 +58,7 @@ export default function Header({
             <Text fontWeight={900} fontSize={16} mr={2}>
               {name}
             </Text>
-            <Avatar name={name} src={avatar} cursor="pointer" />
+            <Avatar name={name} src={getAvatarUrl(avatar)} cursor="pointer" />
           </Flex>
         </PopoverTrigger>
         <PopoverContent _focus={{ boxShadow: 'none' }}>

@@ -1,4 +1,4 @@
-import { User } from './types';
+import { ActivityData, User } from './types';
 
 const menu = [
   {
@@ -32,19 +32,68 @@ const menu = [
 export { menu };
 
 export const user: User = {
-  avatar: './avatar.webp',
+  avatar: '00',
   name: 'John Doe',
   email: 'johndoe@me.com',
 };
 
-export const activityData = [
+export const activityData: ActivityData[] = [
   {
     id: '1',
     date: new Date(),
     name: 'John Doe',
     email: 'johndoe@me.com',
-    avatar: './avatar.webp',
-    subject: 'Your report has been approved',
+    avatar: '01',
+    type: 'like',
+    where: 'facebook',
+    message: 'Liked your ad',
+    location: {
+      lat: 51.525,
+      lng: -0.0991,
+    },
+  },
+  {
+    id: '2',
+    date: new Date(),
+    location: {
+      lat: 51.5551,
+      lng: -0.0919,
+    },
+  },
+  {
+    id: '3',
+    date: new Date(),
+    name: 'Dean Smith',
+    email: 'smith@me.com',
+    avatar: '02',
+    where: 'instagram',
+    type: 'comment',
     message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    location: {
+      lat: 51.535,
+      lng: -0.099,
+    },
+  },
+  {
+    id: '4',
+    date: new Date(),
+    name: 'Kate Miller',
+    email: 'miller@me.com',
+    avatar: '03',
+    where: 'facebook',
+    type: 'newLeader',
+    message: 'New leader for FB Cheat Sheet!',
+    location: {
+      lat: 51.515,
+      lng: -0.0999,
+    },
+  },
+  {
+    id: '5',
+    date: new Date(),
+    location: {
+      lat: 51.505,
+      lng: -0.09,
+    },
   },
 ];
