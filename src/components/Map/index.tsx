@@ -4,9 +4,48 @@ import { MapContainer } from 'react-leaflet/MapContainer';
 import { TileLayer } from 'react-leaflet/TileLayer';
 import 'leaflet/dist/leaflet.css';
 import { ActivityData } from '@/types';
+import { Icon } from 'leaflet';
+
+const likeMarker = new Icon({
+  iconUrl: '/markers/like.webp',
+  iconSize: [35, 35],
+  iconAnchor: [17, 17],
+  popupAnchor: [0, -15],
+});
+const msgMarker = new Icon({
+  iconUrl: '/markers/msg.webp',
+  iconSize: [35, 35],
+  iconAnchor: [17, 17],
+  popupAnchor: [0, -15],
+});
+const topMarker = new Icon({
+  iconUrl: '/markers/top.webp',
+  iconSize: [35, 35],
+  iconAnchor: [17, 17],
+  popupAnchor: [0, -15],
+});
+const defaultMarker = new Icon({
+  iconUrl: '/markers/default.webp',
+  iconSize: [12, 12],
+  iconAnchor: [6, 6],
+  popupAnchor: [0, -6],
+});
 
 interface Props {
   list: ActivityData[];
+}
+
+function getIcon(type?: 'like' | 'comment' | 'newLeader'): Icon {
+  switch (type) {
+    case 'like':
+      return likeMarker;
+    case 'comment':
+      return msgMarker;
+    case 'newLeader':
+      return topMarker;
+    default:
+      return defaultMarker;
+  }
 }
 
 export default function Map({ list }: Props): JSX.Element {
@@ -49,6 +88,7 @@ export default function Map({ list }: Props): JSX.Element {
           <Marker
             key={data.id}
             position={[data.location.lat, data.location.lng]}
+            icon={getIcon(data.type)}
           >
             <Popup>
               <b>{data.name}</b>

@@ -48,16 +48,16 @@ export const activityData: ActivityData[] = [
     where: 'facebook',
     message: 'Liked your ad',
     location: {
-      lat: 51.525,
-      lng: -0.0991,
+      lat: 51.52699,
+      lng: -0.07991,
     },
   },
   {
     id: '2',
     date: new Date(),
     location: {
-      lat: 51.5551,
-      lng: -0.0919,
+      lat: 51.5401,
+      lng: -0.08,
     },
   },
   {
@@ -92,7 +92,7 @@ export const activityData: ActivityData[] = [
     id: '5',
     date: new Date(),
     location: {
-      lat: 51.505,
+      lat: 51.5178,
       lng: -0.09,
     },
   },

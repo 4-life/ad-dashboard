@@ -137,6 +137,7 @@ export default function Nav({ items }: Props): JSX.Element {
               maxW={isOpen ? 300 : 64}
               transition="all 0.3s ease"
               sx={{ WebkitTapHighlightColor: 'transparent' }}
+              textAlign="left"
             >
               <Text as="span" overflow="hidden" width={isOpen ? 'full' : '0px'}>
                 {title}
