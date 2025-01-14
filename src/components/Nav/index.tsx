@@ -6,12 +6,11 @@ import {
   Icon,
   IconButton,
   Image,
-  Link,
   Tag,
   Text,
   useBreakpoint,
 } from '@chakra-ui/react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Gradient from './Gradient';
 import { BiHomeAlt2, BiPlanet } from 'react-icons/bi';
 import { VscBellDot } from 'react-icons/vsc';
@@ -111,11 +110,7 @@ export default function Nav({ items }: Props): JSX.Element {
 
       <Box>
         {items.map(({ title, icon, link, alertsNumber }) => (
-          <Link
-            href={link}
-            key={title}
-            sx={{ WebkitTapHighlightColor: 'transparent' }}
-          >
+          <Link to={link} key={title}>
             <Button
               variant="ghost"
               leftIcon={getIcon(icon)}

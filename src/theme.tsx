@@ -45,6 +45,9 @@ const theme = extendTheme({
         color: 'white',
         fontSize: '1rem',
       },
+      a: {
+        WebkitTapHighlightColor: 'transparent',
+      },
     },
   },
   config,

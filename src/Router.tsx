@@ -1,7 +1,8 @@
 /* eslint-disable react-refresh/only-export-components */
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, redirect } from 'react-router-dom';
 import Root from './components/Root';
+import { Spinner } from '@chakra-ui/react';
 const Alerts = lazy(() => import('./pages/Alerts'));
 const Reports = lazy(() => import('./pages/Reports'));
 const Studio = lazy(() => import('./pages/Studio'));
@@ -21,27 +22,47 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard',
-        element: <HomePage />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <HomePage />
+          </Suspense>
+        ),
         errorElement: <ErrorPage />,
       },
       {
         path: 'alerts',
-        element: <Alerts />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Alerts />
+          </Suspense>
+        ),
         errorElement: <ErrorPage />,
       },
       {
         path: 'reports',
-        element: <Reports />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Reports />
+          </Suspense>
+        ),
         errorElement: <ErrorPage />,
       },
       {
         path: 'studio',
-        element: <Studio />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Studio />
+          </Suspense>
+        ),
         errorElement: <ErrorPage />,
       },
       {
         path: 'settings',
-        element: <Settings />,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Settings />
+          </Suspense>
+        ),
         errorElement: <ErrorPage />,
       },
       {
