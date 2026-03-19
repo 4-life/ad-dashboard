@@ -1,11 +1,14 @@
+import { useRef } from 'react';
 import { Flex } from '@chakra-ui/react';
-import Map from '@/components/Map';
+import Map, { MapHandle } from '@/components/Map';
 import Header from '@/components/Header';
 import MainBanner from '@/components/MainBanner';
 import ActivityList from '@/components/ActivityList';
 import { activityData, user } from '@/config';
 
 function HomePage(): JSX.Element {
+  const mapRef = useRef<MapHandle>(null);
+
   const createHandler = (): void => {
     // do nothing
   };
@@ -17,8 +20,11 @@ function HomePage(): JSX.Element {
         <MainBanner />
       </Flex>
       <Flex w={['full', 'full', '35%']} position="relative" mt={-10} mr={-10}>
-        <Map list={activityData} />
-        <ActivityList list={activityData} />
+        <Map ref={mapRef} list={activityData} />
+        <ActivityList
+          list={activityData}
+          onSelect={(id) => mapRef.current?.focusMarker(id)}
+        />
       </Flex>
     </Flex>
   );

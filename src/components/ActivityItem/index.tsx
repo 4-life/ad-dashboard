@@ -8,9 +8,10 @@ import ActivityAvatar from '../ActivityAvatar';
 
 interface Props {
   data: ActivityData;
+  onSelect?: () => void;
 }
 
-export default function ActivityView({ data }: Props): JSX.Element {
+export default function ActivityItem({ data, onSelect }: Props): JSX.Element {
   const { name, date, message, where } = data;
 
   return (
@@ -44,6 +45,7 @@ export default function ActivityView({ data }: Props): JSX.Element {
           fontSize="20px"
           aria-label="View more"
           icon={<ChevronRightIcon boxSize={8} color="gray.500" />}
+          onClick={onSelect}
         />
       </Flex>
     </Flex>
