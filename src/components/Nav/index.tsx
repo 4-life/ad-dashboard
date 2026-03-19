@@ -19,10 +19,10 @@ import { TbMenuDeep, TbSettings2 } from 'react-icons/tb';
 
 interface Props {
   items: {
-    title: string,
-    icon?: string,
-    link: string,
-    alertsNumber?: number,
+    title: string;
+    icon?: string;
+    link: string;
+    alertsNumber?: number;
   }[];
 }
 

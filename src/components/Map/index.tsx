@@ -121,13 +121,15 @@ function createMarkerElement(
 ): HTMLElement {
   const el = document.createElement('div');
   const size = type ? 35 : 12;
+  const icon =
+    type && MARKER_ICONS[type] ? MARKER_ICONS[type] : '/markers/default.webp';
   el.style.width = `${size}px`;
   el.style.height = `${size}px`;
   el.style.backgroundSize = 'contain';
   el.style.backgroundRepeat = 'no-repeat';
   el.style.backgroundPosition = 'center';
   el.style.cursor = 'pointer';
-  el.style.backgroundImage = `url(${type && MARKER_ICONS[type] ? MARKER_ICONS[type] : '/markers/default.webp'})`;
+  el.style.backgroundImage = `url(${icon})`;
   return el;
 }
 
@@ -150,7 +152,9 @@ const Map = forwardRef<MapHandle, Props>(function Map({ list }, ref) {
     focusMarker(id: string) {
       const marker = markersRef.current.get(id);
       const map = mapRef.current;
-      if (!marker || !map) return;
+      if (!marker || !map) {
+        return;
+      }
 
       const lngLat = marker.getLngLat();
       map.flyTo({
@@ -163,14 +167,20 @@ const Map = forwardRef<MapHandle, Props>(function Map({ list }, ref) {
   }));
 
   useEffect(() => {
-    if (!containerRef.current || mapRef.current) return;
+    const container = containerRef.current;
+    if (!container || mapRef.current) {
+      return;
+    }
 
     let cancelled = false;
+    const markers = markersRef.current;
 
     (async () => {
       const res = await fetch(STYLE_URL);
       const rawStyle: maplibregl.StyleSpecification = await res.json();
-      if (cancelled) return;
+      if (cancelled) {
+        return;
+      }
 
       const map = new maplibregl.Map({
         container: containerRef.current!,
@@ -198,7 +208,7 @@ const Map = forwardRef<MapHandle, Props>(function Map({ list }, ref) {
             .setPopup(popup)
             .addTo(map);
 
-          markersRef.current.set(data.id, marker);
+          markers.set(data.id, marker);
           bounds.extend([data.location.lng, data.location.lat]);
         });
 
@@ -215,8 +225,9 @@ const Map = forwardRef<MapHandle, Props>(function Map({ list }, ref) {
       cancelled = true;
       mapRef.current?.remove();
       mapRef.current = null;
-      markersRef.current.clear();
+      markers.clear();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

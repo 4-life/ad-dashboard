@@ -1,3 +1,7 @@
+if (typeof globalThis.structuredClone === 'undefined') {
+  globalThis.structuredClone = (obj) => JSON.parse(JSON.stringify(obj));
+}
+
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -30,8 +34,7 @@ export default tseslint.config(
       "prettier/prettier": [
         "error",
         {
-          "singleQuote": true,
-          "parser": "flow"
+          "singleQuote": true
         }
       ],
       ...reactHooks.configs.recommended.rules,
@@ -70,6 +73,7 @@ export default tseslint.config(
       'semi': 'error',
       'default-param-last': 'off',
       'react/require-default-props': 'off',
+      'react/prop-types': 'off',
       'import/no-extraneous-dependencies': 0,
       '@typescript-eslint/no-empty-function': 'error',
       'require-explicit-generics/require-explicit-generics': ['error', ['useState']],
