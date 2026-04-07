@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Box, Flex, Icon, IconButton, Text } from '@chakra-ui/react';
 import { ActivityData } from '@/types';
 import { MdCircle } from 'react-icons/md';

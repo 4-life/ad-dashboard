@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Outlet } from 'react-router-dom';
 import Nav from '../Nav';
 import { Container, Flex } from '@chakra-ui/react';

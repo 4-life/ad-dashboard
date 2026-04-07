@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Box } from '@chakra-ui/react';
 
 interface Props {

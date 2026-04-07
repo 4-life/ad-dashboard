@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Box, Button, Image, Text } from '@chakra-ui/react';
 import { MdOutlinePlayArrow } from 'react-icons/md';
 

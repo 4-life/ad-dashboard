@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Avatar, AvatarBadge } from '@chakra-ui/react';
 import { ActivityData } from '@/types';
 import { getAvatarUrl } from '@/utils/avatars';

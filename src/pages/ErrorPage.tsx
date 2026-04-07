@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Box, Button, Text } from '@chakra-ui/react';
 import { useRouteError } from 'react-router-dom';
 

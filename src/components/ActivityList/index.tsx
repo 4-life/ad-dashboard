@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { ActivityData } from '@/types';
 import ActivityItem from '../ActivityItem';

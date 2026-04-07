@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { AddIcon, ChevronDownIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import {
   Avatar,

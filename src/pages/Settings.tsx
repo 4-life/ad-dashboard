@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Flex, Grid, GridItem } from '@chakra-ui/react';
 import Header from '../components/Header';
 import { user } from '../config';
