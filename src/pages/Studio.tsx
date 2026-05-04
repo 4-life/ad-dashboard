@@ -52,7 +52,12 @@ export default function Studio(): JSX.Element {
       <Flex flex={1} flexDirection="column">
         <Header user={user} pageTitle="Studio" />
 
-        <Flex gap={6} mb={8} alignItems="stretch">
+        <Flex
+          gap={6}
+          mb={8}
+          alignItems="stretch"
+          flexDirection={['column', 'column', 'row']}
+        >
           {campaignsData.map((c) => (
             <CampaignCard key={c.id} data={c} />
           ))}
@@ -78,7 +83,7 @@ export default function Studio(): JSX.Element {
             </Button>
           </Flex>
 
-          <Flex gap={5}>
+          <Flex gap={5} flexDirection={['column', 'row']}>
             {creatives.map((c) => (
               <Flex
                 key={c.id}

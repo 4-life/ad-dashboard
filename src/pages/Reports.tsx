@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   Flex,
+  Grid,
   Heading,
   Icon,
   Table,
@@ -51,13 +52,17 @@ export default function Reports(): JSX.Element {
   ];
 
   return (
-    <Flex flex={1}>
-      <Flex flex={1} flexDirection="column">
+    <Flex flex={1} minW={0}>
+      <Flex flex={1} flexDirection="column" minW={0}>
         <Header user={user} pageTitle="Reports" />
 
-        <Flex gap={6} mb={8}>
+        <Grid
+          templateColumns={['repeat(2, 1fr)', 'repeat(4, 1fr)']}
+          gap={6}
+          mb={8}
+        >
           {stats.map((s) => (
-            <Box key={s.label} flex={1} bg="main.300" borderRadius={12} p={5}>
+            <Box key={s.label} bg="main.300" borderRadius={12} p={5}>
               <Text fontSize={24} fontWeight={700} color="white">
                 {s.value}
               </Text>
@@ -66,70 +71,74 @@ export default function Reports(): JSX.Element {
               </Text>
             </Box>
           ))}
-        </Flex>
+        </Grid>
 
         <Box bg="main.300" borderRadius={16} p={6}>
           <Heading as="h3" mb={6}>
             Campaign Breakdown
           </Heading>
-          <Table variant="unstyled" size="sm">
-            <Thead>
-              <Tr>
-                <Th color="text.400">Campaign</Th>
-                <Th color="text.400">Status</Th>
-                <Th color="text.400" isNumeric>
-                  Budget
-                </Th>
-                <Th color="text.400" isNumeric>
-                  Spent
-                </Th>
-                <Th color="text.400" isNumeric>
-                  Impressions
-                </Th>
-                <Th color="text.400" isNumeric>
-                  Clicks
-                </Th>
-                <Th color="text.400" isNumeric>
-                  CTR
-                </Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {campaignsData.map((c) => (
-                <Tr key={c.id} borderTop="1px solid" borderColor="main.400">
-                  <Td py={4}>
-                    <Flex alignItems="center" gap={3}>
-                      <Icon
-                        as={getSocialIcon(c.platform)}
-                        color="text.400"
-                        boxSize={4}
-                      />
-                      <Text color="white" fontWeight={600}>
-                        {c.name}
-                      </Text>
-                    </Flex>
-                  </Td>
-                  <Td>
-                    <Badge
-                      colorScheme={statusColor[c.status]}
-                      textTransform="capitalize"
-                      borderRadius={20}
-                      px={3}
-                    >
-                      {c.status}
-                    </Badge>
-                  </Td>
-                  <Td isNumeric>${c.budget}</Td>
-                  <Td isNumeric>${c.spent}</Td>
-                  <Td isNumeric>
-                    {c.impressions > 0 ? fmt.format(c.impressions) : '—'}
-                  </Td>
-                  <Td isNumeric>{c.clicks > 0 ? fmt.format(c.clicks) : '—'}</Td>
-                  <Td isNumeric>{getCtr(c.clicks, c.impressions)}</Td>
+          <Box overflowX="auto">
+            <Table variant="unstyled" size="sm">
+              <Thead>
+                <Tr>
+                  <Th color="text.400">Campaign</Th>
+                  <Th color="text.400">Status</Th>
+                  <Th color="text.400" isNumeric>
+                    Budget
+                  </Th>
+                  <Th color="text.400" isNumeric>
+                    Spent
+                  </Th>
+                  <Th color="text.400" isNumeric>
+                    Impressions
+                  </Th>
+                  <Th color="text.400" isNumeric>
+                    Clicks
+                  </Th>
+                  <Th color="text.400" isNumeric>
+                    CTR
+                  </Th>
                 </Tr>
-              ))}
-            </Tbody>
-          </Table>
+              </Thead>
+              <Tbody>
+                {campaignsData.map((c) => (
+                  <Tr key={c.id} borderTop="1px solid" borderColor="main.400">
+                    <Td py={4}>
+                      <Flex alignItems="center" gap={3}>
+                        <Icon
+                          as={getSocialIcon(c.platform)}
+                          color="text.400"
+                          boxSize={4}
+                        />
+                        <Text color="white" fontWeight={600}>
+                          {c.name}
+                        </Text>
+                      </Flex>
+                    </Td>
+                    <Td>
+                      <Badge
+                        colorScheme={statusColor[c.status]}
+                        textTransform="capitalize"
+                        borderRadius={20}
+                        px={3}
+                      >
+                        {c.status}
+                      </Badge>
+                    </Td>
+                    <Td isNumeric>${c.budget}</Td>
+                    <Td isNumeric>${c.spent}</Td>
+                    <Td isNumeric>
+                      {c.impressions > 0 ? fmt.format(c.impressions) : '—'}
+                    </Td>
+                    <Td isNumeric>
+                      {c.clicks > 0 ? fmt.format(c.clicks) : '—'}
+                    </Td>
+                    <Td isNumeric>{getCtr(c.clicks, c.impressions)}</Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </Box>
         </Box>
       </Flex>
     </Flex>

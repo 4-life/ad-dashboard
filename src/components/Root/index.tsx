@@ -14,7 +14,7 @@ export default function Root(): JSX.Element {
             alertsCount={alertsData.filter((a) => !a.read).length}
           />
         </Flex>
-        <Flex flex={1} p={[3, 3, 10]}>
+        <Flex flex={1} p={[3, 3, 10]} minW={0} overflowX="hidden">
           <Outlet />
         </Flex>
       </Flex>
