@@ -54,11 +54,11 @@ export default function Settings(): JSX.Element {
 
         <Grid
           templateRows="repeat(2, auto)"
-          templateColumns="repeat(5, 1fr)"
+          templateColumns={['1fr', '1fr', 'repeat(5, 1fr)']}
           gap={6}
         >
           <GridItem
-            rowSpan={2}
+            rowSpan={[1, 1, 2]}
             colSpan={1}
             bg="main.300"
             borderRadius={16}
@@ -98,7 +98,7 @@ export default function Settings(): JSX.Element {
             </Flex>
           </GridItem>
 
-          <GridItem colSpan={2} bg="main.300" borderRadius={16} p={6}>
+          <GridItem colSpan={[1, 1, 2]} bg="main.300" borderRadius={16} p={6}>
             <Heading as="h3" mb={6}>
               Profile
             </Heading>
@@ -159,7 +159,7 @@ export default function Settings(): JSX.Element {
             </Flex>
           </GridItem>
 
-          <GridItem colSpan={2} bg="main.300" borderRadius={16} p={6}>
+          <GridItem colSpan={[1, 1, 2]} bg="main.300" borderRadius={16} p={6}>
             <Heading as="h3" mb={6}>
               Plan
             </Heading>
@@ -207,11 +207,11 @@ export default function Settings(): JSX.Element {
             </Button>
           </GridItem>
 
-          <GridItem colSpan={4} bg="main.300" borderRadius={16} p={6}>
+          <GridItem colSpan={[1, 1, 4]} bg="main.300" borderRadius={16} p={6}>
             <Heading as="h3" mb={6}>
               Connected Platforms
             </Heading>
-            <Flex gap={4}>
+            <Flex gap={4} flexDirection={['column', 'row']}>
               {platforms.map((p) => (
                 <Flex
                   key={p.id}
