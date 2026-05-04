@@ -1,4 +1,4 @@
-import { ActivityData, AlertData, User } from './types';
+import { ActivityData, AlertData, CampaignData, User } from './types';
 
 const menu = [
   {
@@ -164,5 +164,38 @@ export const alertsData: AlertData[] = [
     category: 'performance',
     read: true,
     adName: 'Summer Sale',
+  },
+];
+
+export const campaignsData: CampaignData[] = [
+  {
+    id: 'c1',
+    name: 'Summer Sale',
+    platform: 'facebook',
+    status: 'active',
+    budget: 500,
+    spent: 412,
+    impressions: 48200,
+    clicks: 1930,
+  },
+  {
+    id: 'c2',
+    name: 'FB Cheat Sheet',
+    platform: 'instagram',
+    status: 'paused',
+    budget: 300,
+    spent: 180,
+    impressions: 22100,
+    clicks: 640,
+  },
+  {
+    id: 'c3',
+    name: 'Winter Campaign',
+    platform: 'google',
+    status: 'draft',
+    budget: 800,
+    spent: 0,
+    impressions: 0,
+    clicks: 0,
   },
 ];

@@ -21,6 +21,17 @@ export interface ActivityData {
   type?: 'like' | 'comment' | 'newLeader';
 }
 
+export interface CampaignData {
+  id: string;
+  name: string;
+  platform: 'facebook' | 'instagram' | 'google';
+  status: 'active' | 'paused' | 'draft';
+  budget: number;
+  spent: number;
+  impressions: number;
+  clicks: number;
+}
+
 export interface AlertData {
   id: string;
   date: Date;
