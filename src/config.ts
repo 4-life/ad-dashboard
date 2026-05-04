@@ -1,4 +1,4 @@
-import { ActivityData, User } from './types';
+import { ActivityData, AlertData, User } from './types';
 
 const menu = [
   {
@@ -10,7 +10,6 @@ const menu = [
     title: 'Alerts',
     link: '/alerts',
     icon: 'notify',
-    alertsNumber: 3,
   },
   {
     title: 'Studio',
@@ -95,5 +94,75 @@ export const activityData: ActivityData[] = [
       lat: 51.5178,
       lng: -0.09,
     },
+  },
+];
+
+const min15 = 15 * 60 * 1000;
+const hour2 = 2 * 60 * 60 * 1000;
+const hour5 = 5 * 60 * 60 * 1000;
+const hour8 = 8 * 60 * 60 * 1000;
+const hour24 = 24 * 60 * 60 * 1000;
+const hour26 = 26 * 60 * 60 * 1000;
+
+export const alertsData: AlertData[] = [
+  {
+    id: 'a1',
+    date: new Date(Date.now() - min15),
+    title: 'Budget Limit Reached',
+    message: 'Your daily budget for "Summer Sale" has been exhausted.',
+    severity: 'critical',
+    category: 'budget',
+    read: false,
+    adName: 'Summer Sale',
+  },
+  {
+    id: 'a2',
+    date: new Date(Date.now() - hour2),
+    title: 'CTR Drop Detected',
+    message: 'Click-through rate dropped 32% compared to yesterday.',
+    severity: 'warning',
+    category: 'performance',
+    read: false,
+    adName: 'FB Cheat Sheet',
+  },
+  {
+    id: 'a3',
+    date: new Date(Date.now() - hour5),
+    title: 'New Comment on Ad',
+    message: 'Dean Smith commented: "Lorem ipsum dolor sit amet."',
+    severity: 'info',
+    category: 'engagement',
+    read: true,
+    adName: 'FB Cheat Sheet',
+  },
+  {
+    id: 'a4',
+    date: new Date(Date.now() - hour8),
+    title: 'Ad Approval Needed',
+    message: 'Your updated ad is pending review before going live.',
+    severity: 'critical',
+    category: 'system',
+    read: false,
+    adName: 'Winter Campaign',
+  },
+  {
+    id: 'a5',
+    date: new Date(Date.now() - hour24),
+    title: 'Budget at 80%',
+    message: 'You\'ve used 80% of your weekly budget for "Winter Campaign".',
+    severity: 'warning',
+    category: 'budget',
+    read: true,
+    adName: 'Winter Campaign',
+  },
+  {
+    id: 'a6',
+    date: new Date(Date.now() - hour26),
+    title: 'Impression Spike',
+    message: 'Your ad received 3× the usual impressions in the past hour.',
+    severity: 'info',
+    category: 'performance',
+    read: true,
+    adName: 'Summer Sale',
   },
 ];

@@ -22,8 +22,8 @@ interface Props {
     title: string;
     icon?: string;
     link: string;
-    alertsNumber?: number;
   }[];
+  alertsCount?: number;
 }
 
 const menuItem = 'menu';
@@ -63,7 +63,7 @@ const getIcon = (icon?: string): JSX.Element => {
   return <Icon as={BiHomeAlt2} {...style} />;
 };
 
-export default function Nav({ items }: Props): JSX.Element {
+export default function Nav({ items, alertsCount }: Props): JSX.Element {
   const bp = useBreakpoint({ ssr: false });
   const [isOpen, setIsOpen] = useState<boolean>(initMenu(bp));
   const params = useLocation();
@@ -109,7 +109,7 @@ export default function Nav({ items }: Props): JSX.Element {
       </Flex>
 
       <Box>
-        {items.map(({ title, icon, link, alertsNumber }) => (
+        {items.map(({ title, icon, link }) => (
           <Link to={link} key={title}>
             <Button
               variant="ghost"
@@ -137,7 +137,7 @@ export default function Nav({ items }: Props): JSX.Element {
               <Text as="span" overflow="hidden" width={isOpen ? 'full' : '0px'}>
                 {title}
               </Text>
-              {alertsNumber ? (
+              {icon === 'notify' && alertsCount ? (
                 <Tag
                   size={isOpen ? 'md' : 'sm'}
                   borderRadius="full"
@@ -147,7 +147,7 @@ export default function Nav({ items }: Props): JSX.Element {
                   fontSize={isOpen ? 16 : 12}
                   top={isOpen ? 'auto' : 0}
                 >
-                  {alertsNumber}
+                  {alertsCount}
                 </Tag>
               ) : null}
             </Button>

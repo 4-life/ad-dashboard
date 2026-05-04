@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, redirect } from 'react-router-dom';
 import Root from './components/Root';

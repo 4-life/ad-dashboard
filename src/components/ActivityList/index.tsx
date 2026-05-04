@@ -18,7 +18,13 @@ export default function Activity({ list, onSelect }: Props): JSX.Element {
       flexDirection="column"
       zIndex="modal"
     >
-      <Box position="absolute" top={10} right={10} textAlign="right">
+      <Box
+        position="absolute"
+        top={10}
+        right={10}
+        textAlign="right"
+        pointerEvents="none"
+      >
         <Text fontSize={25}>Live Map</Text>
         <Text>
           {list.length} People{' '}
@@ -27,7 +33,7 @@ export default function Activity({ list, onSelect }: Props): JSX.Element {
           </Text>
         </Text>
       </Box>
-      <Heading variant="h3" mb={10}>
+      <Heading variant="h3" mb={10} pointerEvents="none">
         Activity
       </Heading>
       {list.map((data) => (

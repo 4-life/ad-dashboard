@@ -20,3 +20,14 @@ export interface ActivityData {
   where?: string;
   type?: 'like' | 'comment' | 'newLeader';
 }
+
+export interface AlertData {
+  id: string;
+  date: Date;
+  title: string;
+  message: string;
+  severity: 'critical' | 'warning' | 'info';
+  category: 'budget' | 'performance' | 'engagement' | 'system';
+  read: boolean;
+  adName?: string;
+}
