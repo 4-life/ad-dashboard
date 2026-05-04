@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { Box, Flex, Heading, Icon, Switch, Text } from '@chakra-ui/react';
+import { Box, Flex, Grid, Heading, Icon, Switch, Text } from '@chakra-ui/react';
 import {
   MdCheckCircle,
   MdError,
@@ -23,7 +23,7 @@ function StatCard({ label, value, icon, color }: StatCardProps): JSX.Element {
       flex={1}
       bg="main.300"
       borderRadius={12}
-      p={5}
+      p={[2, 5]}
       gap={4}
       alignItems="center"
     >
@@ -88,7 +88,11 @@ export default function Alerts(): JSX.Element {
       <Flex flex={1} flexDirection="column">
         <Header user={user} pageTitle="Alerts" />
 
-        <Flex gap={6} mb={8}>
+        <Grid
+          templateColumns={['repeat(2, 1fr)', 'repeat(4, 1fr)']}
+          gap={[2, 6]}
+          mb={8}
+        >
           <StatCard
             label="Total Alerts"
             value={total}
@@ -113,9 +117,13 @@ export default function Alerts(): JSX.Element {
             icon={MdCheckCircle}
             color="#68d391"
           />
-        </Flex>
+        </Grid>
 
-        <Flex gap={8} alignItems="flex-start">
+        <Flex
+          gap={8}
+          alignItems={['stretch', 'flex-start']}
+          flexDirection={['column', 'column', 'row']}
+        >
           <Box flex={2}>
             <Heading as="h3" mb={6}>
               Recent Alerts
