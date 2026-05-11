@@ -13,7 +13,6 @@ export default function Activity({ list, onSelect }: Props): JSX.Element {
     <Flex
       alignItems="flex-start"
       flex={1}
-      p={[0, 0, 10]}
       mt="500px"
       flexDirection="column"
       zIndex="modal"
@@ -36,13 +35,15 @@ export default function Activity({ list, onSelect }: Props): JSX.Element {
       <Heading variant="h3" mb={10} pointerEvents="none">
         Activity
       </Heading>
-      {list.map((data) => (
-        <ActivityItem
-          key={data.id}
-          data={data}
-          onSelect={() => onSelect?.(data.id)}
-        />
-      ))}
+      <Box overflowY="scroll" w="full">
+        {list.map((data) => (
+          <ActivityItem
+            key={data.id}
+            data={data}
+            onSelect={() => onSelect?.(data.id)}
+          />
+        ))}
+      </Box>
     </Flex>
   );
 }

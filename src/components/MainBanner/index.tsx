@@ -11,6 +11,7 @@ export default function MainBanner(): JSX.Element {
         borderRadius={12}
         position="relative"
         overflow="hidden"
+        pr={[0, 0, 300]}
         _before={{
           content: '""',
           position: 'absolute',

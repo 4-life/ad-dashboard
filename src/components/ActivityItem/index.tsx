@@ -18,7 +18,7 @@ export default function ActivityItem({ data, onSelect }: Props): JSX.Element {
   return (
     <Flex
       w="full"
-      p={5}
+      p={[2, 3, 5]}
       bg="main.300"
       borderRadius={12}
       mb={4}
@@ -27,12 +27,18 @@ export default function ActivityItem({ data, onSelect }: Props): JSX.Element {
       <Flex alignItems="center" gap={4}>
         <ActivityAvatar data={data} />
         <Box>
-          <Flex alignItems="center" gap={2}>
+          <Flex
+            alignItems={['flex-start', 'center']}
+            gap={4}
+            flexDirection={['column', 'row']}
+          >
             <Text color="white" fontWeight={600}>
               {name || 'Someone clicked your ad!'}
             </Text>
-            <Icon boxSize={2} as={MdCircle} />
-            <Text>{getTimeAgo(date, !message)}</Text>
+            <Flex alignItems="center" gap={2}>
+              <Icon boxSize={2} as={MdCircle} />
+              <Text>{getTimeAgo(date, !message)}</Text>
+            </Flex>
           </Flex>
           <Text>{message}</Text>
         </Box>

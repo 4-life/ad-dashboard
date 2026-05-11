@@ -48,7 +48,7 @@ const creatives: Creative[] = [
 
 export default function Studio(): JSX.Element {
   return (
-    <Flex flex={1}>
+    <Flex flex={1} p={[3, 3, 10]}>
       <Flex flex={1} flexDirection="column">
         <Header user={user} pageTitle="Studio" />
 

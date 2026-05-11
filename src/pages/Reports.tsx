@@ -52,7 +52,7 @@ export default function Reports(): JSX.Element {
   ];
 
   return (
-    <Flex flex={1} minW={0}>
+    <Flex flex={1} minW={0} p={[3, 3, 10]}>
       <Flex flex={1} flexDirection="column" minW={0}>
         <Header user={user} pageTitle="Reports" />
 

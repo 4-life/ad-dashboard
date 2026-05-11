@@ -84,7 +84,7 @@ export default function Alerts(): JSX.Element {
   const resolved = alertsData.filter((a) => a.read).length;
 
   return (
-    <Flex flex={1}>
+    <Flex flex={1} p={[3, 3, 10]}>
       <Flex flex={1} flexDirection="column">
         <Header user={user} pageTitle="Alerts" />
 
